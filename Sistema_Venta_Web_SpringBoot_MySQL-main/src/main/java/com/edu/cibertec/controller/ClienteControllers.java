@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import com.edu.cibertec.model.Cliente;
+
 import com.edu.cibertec.service.impl.IClienteService;
 
 import jakarta.validation.Valid;
@@ -22,7 +23,8 @@ import jakarta.validation.Valid;
 @Controller
 @SessionAttributes("cliente")
 public class ClienteControllers {
-    
+
+
     @Autowired
     private IClienteService clienteService;
 
@@ -41,7 +43,7 @@ public class ClienteControllers {
         return "form";
     }
 
-    @RequestMapping(value="/form",method = RequestMethod.POST)
+    @RequestMapping(value = "/form",method = RequestMethod.POST)
     public String guardar(@Valid Cliente cliente,BindingResult result, Model model, SessionStatus status){
         if (result.hasErrors()) {
             model.addAttribute("titulo","Formulario del Cliente");
@@ -51,6 +53,7 @@ public class ClienteControllers {
         status.setComplete();
         return "redirect:listar";
     }
+
 
     @RequestMapping(value="/form/{id}")
     public String editar(@PathVariable(value="id") Long id, Map<String,Object>model){

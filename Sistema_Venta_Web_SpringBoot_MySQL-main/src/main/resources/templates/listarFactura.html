@@ -28,52 +28,32 @@
             <a class="item-lista-dinamica"  th:href="@{/inventario}" data-text="&nbsp;Inventario">&nbsp;Inventario&nbsp;</a>
         </li>
         <li class="lista-2-dinamica" style="--clr:#b006a7;">
-          <a class="item-lista-dinamica"  th:href="@{/listar}" data-text="&nbsp;Listar">&nbsp;Listar&nbsp;</a>
-      </li>
-      <label sec:authentication="name" class="text-success"></label>
+            <a class="item-lista-dinamica"  th:href="@{/listar}" data-text="&nbsp;Listar">&nbsp;Listar&nbsp;</a>
+        </li>
+        <label sec:authentication="name" class="text-success"></label>
         <p><a th:href="@{/logout}" class="btn btn-danger btn-xs m-2">salir</a></p>
     </ul>
   </nav>
   <!--fin navar-->
-<div class="container">
-    <h1 th:text="${titulo}" class="text-secondary border border-success border-top-0 border-left-0 border-right-0"></h1>
-    <form th:action="@{/form}" th:object="${cliente}" method="post">
-        <div class="form-group row">
-            <label class="col-sm-2 col-form-label">Nombre</label>
-            <div class="col-sm-6">
-                <input type="text" th:field="*{nombre}" class="form-control"
-                th:errorclass="'form-control alert-danger'"/> <small class="form-text text-danger" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}">
-                </small>
-            </div>
-        </div>
-
-        <div class="form-group row">
-            <label class="col-sm-2 col-form-label">Apellido</label>
-            <div class="col-sm-6">
-                <input type="text" th:field="*{apellido}" class="form-control"
-                th:errorclass="'form-control alert-danger'"/> <small class="form-text text-danger" th:if="${#fields.hasErrors('apellido')}" th:errors="*{apellido}">
-                </small>
-            </div>
-        </div>
-
-        <div class="form-group row">
-            <label class="col-sm-2 col-form-label">Fecha</label>
-            <div class="col-sm-6">
-                <input type="text" th:field="*{createAt}" class="form-control"
-                th:errorclass="'form-control alert-danger'"/> <small class="form-text text-danger" th:if="${#fields.hasErrors('createAt')}" th:errors="*{createAt}">
-                </small>
-            </div>
-        </div>
-
-        <div class="form-group row">
-            <div class="col-sm-6">
-                <input type="submit" value="Crear Cliente" class="btn btn-primary">
-            </div>
-
-        </div>
-    </form>
-</div>
-
+  <div class="container">
+    <h1 class="text-secondary border border-success border-top-0 border-left-0 border-right-0" th:text="${titulo}"></h1>
+    <p><a th:href="@{/formfactura}" class="btn btn-success btn-xs">crear factura</a></p>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>descripcion</th>
+                <th>total</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="factura: ${facturas}">
+                <td th:text="${factura.id}"></td>
+                <td th:text="${factura.descripcion}"></td>
+                <td th:text="${factura.total}"></td>
+        </tbody>
+    </table>
+  </div>
 
   <footer class="footer bg-dark text-white text-center mt ">
     <div class="container">

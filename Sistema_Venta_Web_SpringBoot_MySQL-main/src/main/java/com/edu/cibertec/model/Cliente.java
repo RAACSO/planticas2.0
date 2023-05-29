@@ -36,7 +36,7 @@ public class Cliente implements Serializable{
     @Column(nullable = true)
     private String apellido;
 
-    @Email(message = "El email debe estar bien formado")
+   
     @Column(nullable = true)
     private String email;
 

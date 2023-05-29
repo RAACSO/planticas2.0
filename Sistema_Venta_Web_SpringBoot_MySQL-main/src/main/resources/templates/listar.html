@@ -22,18 +22,16 @@
             <a class="item-lista-dinamica" th:href="@{/index}" data-text="&nbsp;Inicio">&nbsp;Inicio&nbsp;</a>
         </li>
         <li  class="lista-2-dinamica" style="--clr:#ff6493;">
-            <a class="item-lista-dinamica"  th:href="@{/facturar}" data-text="&nbsp;Factura">&nbsp;Factura&nbsp;</a>
+            <a class="item-lista-dinamica"  th:href="@{/listarFactura}" data-text="&nbsp;Factura">&nbsp;Factura&nbsp;</a>
         </li>
         <li class="lista-2-dinamica" style="--clr:#ffdd1c;">
             <a class="item-lista-dinamica"  th:href="@{/inventario}" data-text="&nbsp;Inventario">&nbsp;Inventario&nbsp;</a>
         </li>
-        <li class="lista-2-dinamica" style="--clr:#00dc82;">
-            <a class="item-lista-dinamica"  th:href="@{/reporte}" data-text="&nbsp;Reportes">&nbsp;Reportes&nbsp;</a>
-        </li>
         <li class="lista-2-dinamica" style="--clr:#b006a7;">
             <a class="item-lista-dinamica"  th:href="@{/listar}" data-text="&nbsp;Listar">&nbsp;Listar&nbsp;</a>
         </li>
-        <label sec:authentication="name" class="text-danger"></label>
+        <label sec:authentication="name" class="text-success"></label>
+        <p><a th:href="@{/logout}" class="btn btn-danger btn-xs m-2">salir</a></p>
     </ul>
   </nav>
   <!--fin navar-->
@@ -46,7 +44,6 @@
                 <th>id</th>
                 <th>nombre</th>
                 <th>apellido</th>
-                <th>email</th>
                 <th>fecha</th>
                 <th>editar</th>
                 <th>eliminar</th>
@@ -57,7 +54,6 @@
                 <td th:text="${cliente.id}"></td>
                 <td th:text="${cliente.nombre}"></td>
                 <td th:text="${cliente.apellido}"></td>
-                <td th:text="${cliente.email}"></td>
                 <td th:text="${cliente.createAt}"></td>
                 <td><a class="btn btn-primary btn-xs" th:href="@{/form/} + ${cliente.id}" th:text="'editar'"></a></td>
                 <td><a class="btn btn-danger btn-xs" th:href="@{/eliminar/} + ${cliente.id}" th:text="'eliminar'" onclick="return confirm('Estás seguro que quieres eliminar?');"></a></td>

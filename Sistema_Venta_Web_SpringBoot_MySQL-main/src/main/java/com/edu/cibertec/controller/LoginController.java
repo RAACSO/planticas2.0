@@ -16,10 +16,16 @@ public class LoginController {
 		return "login";
 	}
 	
-	@GetMapping("/")
+	@GetMapping("/index")
 	public String index() {
 		return "index";
 	}
+
+	@GetMapping("/inventario")
+    public String inventario(){
+        return "inventario";
+    }
+
 	
 	
 }

@@ -43,15 +43,17 @@ public class WebSecurityConfiguration {
 		// Tenga en cuenta que el orden de los elementos antMatchers() es significativo; las reglas más
 		// específicas deben ir primero, seguidas de las más generales(permitAll)
 		http.httpBasic().and().authorizeHttpRequests()
-				.requestMatchers(HttpMethod.GET,"/empleados/eliminarEmpleado/**").hasAnyRole("ADMIN")
-				.requestMatchers(HttpMethod.POST,"/listar/**").hasAnyRole("ADMIN")
+		.requestMatchers(HttpMethod.POST,"/formfactura/**").hasAnyRole("ADMIN")
 				.requestMatchers(HttpMethod.GET,"/listar/**").hasAnyRole("ADMIN","USER")
 				.requestMatchers(HttpMethod.POST,"/form/**").hasAnyRole("ADMIN")
 				.requestMatchers(HttpMethod.GET,"/form/**").hasAnyRole("ADMIN","USER")
-				.requestMatchers("/").hasAnyRole("ADMIN","USER")
+				.requestMatchers(HttpMethod.GET,"/listarFactura/**").hasAnyRole("ADMIN","USER")
+				.requestMatchers(HttpMethod.GET,"/formfactura/**").hasAnyRole("ADMIN","USER")
+				.requestMatchers(HttpMethod.GET,"/inventario").hasAnyRole("ADMIN","USER")
+				.requestMatchers("/index").hasAnyRole("ADMIN","USER")
 				.requestMatchers("/img/**","/js/**","/css/**").permitAll()
 			.and().formLogin().successHandler(sucessHandler).loginPage("/login").loginProcessingUrl("/login")
-			.defaultSuccessUrl("/",true).permitAll()
+			.defaultSuccessUrl("/index",true).permitAll()
 			.and().logout().clearAuthentication(true).invalidateHttpSession(true).logoutSuccessUrl("/login?logout").permitAll() //.logoutRequestMatcher(new AntPathRequestMatcher("/logout")).deleteCookies("JSESSIONID") // url[logout es el parametro que se envia] - para que no invalide la session - eliminar cookies.
 			.and().csrf().disable(); // <-------- CSRF bloquea los metodos POST, y esta habilitado por defecto
 		return http.build();

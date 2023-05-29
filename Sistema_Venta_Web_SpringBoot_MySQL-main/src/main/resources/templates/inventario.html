@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+        <title>Planticas</title>
+        <link rel="icon" href="img-plantas/icono.png">
+        <script src="script.js"></script>
+    </head>
+<body>
+    <nav class="navbar bg-dark" data-bs-theme="dark">
+        <img id="logotipo" th:src="@{img/logo.png}" alt="logotipo">
+            <li class="lista-2-dinamica" style="--clr:#00ade1;">
+                <a class="item-lista-dinamica" th:href="@{/index}" data-text="&nbsp;Inicio">&nbsp;Inicio&nbsp;</a>
+            </li>
+            <li  class="lista-2-dinamica" style="--clr:#ff6493;">
+                <a class="item-lista-dinamica"  th:href="@{/listarFactura}" data-text="&nbsp;Factura">&nbsp;Factura&nbsp;</a>
+            </li>
+            <li class="lista-2-dinamica" style="--clr:#ffdd1c;">
+                <a class="item-lista-dinamica"  th:href="@{/inventario}" data-text="&nbsp;Inventario">&nbsp;Inventario&nbsp;</a>
+            </li>
+            <li class="lista-2-dinamica" style="--clr:#b006a7;">
+                <a class="item-lista-dinamica"  th:href="@{/listar}" data-text="&nbsp;Listar">&nbsp;Listar&nbsp;</a>
+            </li>
+            <label sec:authentication="name" class="text-success"></label>
+        <p><a th:href="@{/logout}" class="btn btn-danger btn-xs m-2">salir</a></p>
+        </ul>
+      </nav>
+    <a href=""></a>
+
+    <div class="container">
+        <form class="d-flex m-2" role="searc">
+            <input class="form-control me-2 w-50" type="search" placeholder="Buscar" aria-label="Search">
+            <button class="btn btn-outline-success search" type="submit"> <strong><h4>Buscar</h4></strong> </button>
+        </form>
+    
+        <div class="cont-tabla">
+            
+    <table class="table">
+        <thead class="thead" style="background-color: #4fb4af;">
+        <tr>
+            <th scope="col">Codigo</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Cantidad</th>
+            <th scope="col">Val Unitario</th>
+        </tr>
+        </thead>
+        <tbody class="table-group-divider " style="background-color: rgba(255, 255, 255, 0.6);">
+        <tr>
+            <th scope="row bg-info">1</th>
+            <td>NN</td>
+            <td>#</td>
+            <td>$</td>
+        
+        </tr>
+        <tr>
+            <th scope="row">2</th>
+            <td>NN</td>
+            <td>#</td>
+            <td>$</td>
+            
+        </tr>
+        <tr>
+            <th scope="row">3</th>
+            <td>NN</td>
+            <td>#</td>
+            <td>$</td>
+            
+        </tr>
+        </tbody>
+    </table>
+    <div class="input-group">
+        
+        <button type="button" class="btn btn-outline-primary m-1 " id="add" > <strong> <h4>+ Agregar</h4></strong></button>
+        <button type="button" class="btn btn-outline-danger " id="canc"> <strong> <h4>Cancelar</h4></strong></button>
+    </div>
+    </div>
+</div>
+
+<footer class="footer bg-dark text-white text-center mt ">
+    <div class="container ">
+        <div class="row"> 
+
+            <div class="col-4"><h3>CONTACTO</h3> 
+                <button type="button" class="btn btn-outline-primary"> <i class="bi bi-facebook"></i></button>
+                <button type="button" class="btn btn-outline-success"><i class="bi bi-whatsapp" ></i></button>
+                <button type="button" class="btn btn-outline-warning"><i class="bi bi-instagram"></i></button></div>
+                <div class="col-4 "></div>
+        <div class="col-4"><h4>CORREO </h4><br>planticas@gmail.com <br>tel:6505555   </div>
+
+
+    </div>
+    
+
+
+</div>
+
+
+</footer>
+
+
+    
+</body>
+</html>
